@@ -1,0 +1,267 @@
+* {
+  box-sizing: border-box;
+}
+
+/* für Grundlegendes Design hier Grundregeln 
+  mit niedriger Spezifität zur leichten Überschreibung*/
+body {
+  font-family: Arial;
+  padding: 2px;
+  background: #bfbdbd;
+}
+
+/*Background Formatierung*/
+.header {
+  padding: 30px;
+  height: 625px;
+  text-align: center;
+  background-image: url(https://images.hdqwalls.com/download/5k-tom-clancys-rainbow-six-siege-game-65-1536x864.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.header h1 {
+  font-size: 50px;
+  color: rgb(216, 213, 209);
+  border: 2px;
+}
+
+/*overflow hidden 
+  um das überlappen des Hintergrundbildes zu vermeiden  */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* text-decoration: none
+   um das unterstreichen der links zu vermeiden*/
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Link Hover Settings */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/*content 
+  Um den BoxInhalten einen gleichmäßigen
+  Wert zu geben unbestimmt=alles 
+  so wird jede definition nach row angesprochen
+  ergo jeder zugefügter inhalt des footers*/
+
+/*display block stellt die Elemente als Blockelemente da
+  was dafür da ist damit der footer die Block Formatierung 
+  mit z.B. margin top zu Übernehmen*/
+
+/*clear both damit alles nach diesem Segment 
+  in diesem Fall das footer Element darunter 
+  nicht daneben angeordnet wird*/
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Boxen Links rechts mit Breitenverteilung durch 
+  display block die anordnung nebeneinander trotz doppeltem float left*/
+.leftcolumn {
+  float: left;
+  width: 75%;
+}
+
+/*padding left für den Abstand zu leftcolumn */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+.card {
+  background-image: url(../img/Main/R6Wall2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #f2f2f2;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+.card a {
+  float: left;
+  display: block;
+  color: #13d92d;
+  padding: 1px;
+  text-decoration: none;
+}
+
+.card a:hover {
+  background-color: #13d92d;
+  color: rgb(0, 0, 0);
+  text-shadow: none;
+}
+
+.bio {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+#über {
+  text-align: center;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Wenn ich die Vorgabe vom Eltern Element 
+  nicht bei dem Kind haben möchte ein none einsetzen*/
+#website {
+  text-align: center;
+  background-color: black;
+  background-image: none;
+  color: rgb(254, 251, 248);
+  text-shadow: #070707 2px 2px;
+}
+
+#website h3 {
+  color: #ffffffcb;
+  text-shadow: #070707 2px 2px;
+  text-decoration: double;
+  font-size: large;
+  text-align: left;
+}
+
+#social {
+  text-align: center;
+  background-image: url(../img/Main/ElaWall.jpg);
+}
+
+/*
+  /*Logos mit Social Media Verlinkungen*/
+#social img {
+  width: 50px;
+  height: 50px;
+}
+
+#social div {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+#social h3 {
+  align-self: center;
+}
+
+/*footer ähnlicher Aufbau wie header*/
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 550px;
+  padding: 70px;
+  background-image: url(../img/Main/Footer.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  margin-top: 20px;
+  color: #fafcf8;
+  text-shadow: #dbd8d8 3px;
+
+}
+
+.footer h2 {
+  width: 50%;
+  text-align: center;
+  border: #626662 2px solid;
+  border-radius: 50%;
+  background-image: url(../img/Main/Dunkel.jpg);
+
+}
+
+.footer ul {
+  width: 50%;
+  padding: 50px;
+  margin: 5px;
+  text-align: center;
+  list-style: none;
+  border: #626662 2px solid;
+  border-radius: 25%;
+  background-image: url(../img/Main/Dunkel.jpg);
+  font-size: 1.3rem;
+
+}
+
+/*Icon durch Background-Image statt Listen-img für individuelle Icons*/
+/*before für Icon VOR der Liste 
+margin etc. nach Vorgabe um eine passende Größe zu treffen
+inline block damit das Icon nicht in eine neue Zeile gepackt wird*/
+ul #fov::before {
+  content: "";
+  background-image: url(../img/Icons/eye-outline-filled.png);
+  margin: 0 5px -0.5rem -1rem;
+  background-size: cover;
+  display: inline-block;
+  height: 45px;
+  width: 45px;
+}
+
+ul #sens:before {
+  content: "";
+  background-image: url(../img/Icons/mouse-sens.svg);
+  margin: 0 5px -0.5rem -1rem;
+  background-size: cover;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+ul #sensAds:before {
+  content: "";
+  background-image: url(../img/Icons/Ads.png);
+  margin: 0 5px -0.5rem -1rem;
+  background-size: cover;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+
+
+
+/*Anordnung bei Zoom untereinander*/
+/*Fokus auf die Colums für Verteilung untereinander so 
+dass die Karten sich einzeln ansehen lassen dafür statt 75% | 25%
+der gemeinsame ersatzwert 100% breite*/
+@media screen and (max-width: 800px) {
+
+  .leftcolumn,
+  .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/*damit die volle Nav  Leiste trotz stauchung zu sehen ist benutze ich
+float none um dafür zu sorgen das die Reiter an den kleineren Seiten
+zu shen sind */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+/*Problematiken:
+  -Listen Icons stylen - Background Image und dann durch befehle davor setzen
+  -boxen wie gewollt anordnen - Lösung flex wrap
+  -Scalierung bei Fenster-Ansicht TEST herausforderung boxen sollen untereinander angeordnet werden
